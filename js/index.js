@@ -2,7 +2,6 @@
 //mouseenter 
 let welcome = document.querySelector('.intro');
 welcome.addEventListener('mouseenter',(event)=>{
-    event.stopPropagation();
     event.target.style.backgroundColor = 'pink';
     event.target.style.color = 'hotpink'
 });
@@ -23,6 +22,7 @@ image1.addEventListener('mouseover', ()=>{
 //keydown
 let body = document.querySelector('body');
 body.addEventListener('keydown', (event)=>{
+    event.stopPropagation();
     event.target.style.backgroundColor = 'aqua';
     });
 
@@ -35,17 +35,24 @@ logo.addEventListener('dblclick', (event)=>{
 //click    
 let textContent = document.querySelectorAll('.text-content');
 textContent.forEach((element)=>{
-    element.addEventListener('click', ()=>{
+    element.addEventListener('click', (event)=>{
+        event.stopPropagation();
         element.style.backgroundColor = 'blue';
     })
 })
-
+//stop prop.......
+let h2 = document.querySelector('.text-content h2');
+    h2.addEventListener('click',(event)=>{
+        event.stopPropagation();
+        event.target.style.display = 'none';
+    })
 
 //copy
 let navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach((link)=>{
     link.addEventListener('copy',()=>{
         link.textContent = 'Blah';
+        preventDefault();
 
     })
 })
